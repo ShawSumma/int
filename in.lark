@@ -1,0 +1,16 @@
+
+start: add
+
+add: (add ADD_OP)? mul -> op
+
+mul: (mul MUL_OP)? single -> op
+
+single: NUMBER | "(" add ")"
+
+ADD_OP: "+" | "-"
+MUL_OP: "*" | "/"
+
+%ignore WS
+
+%import common.NUMBER -> NUMBER
+%import common.WS -> WS
